@@ -37,13 +37,25 @@ export default class Transfer extends React.Component{
     };
 
     //
-    //Resume work here
+    //Resume work here, is currently deducting from correctly but not adding to correctly
     //
-    updateAccounts = () => {
+    updateAccounts = (ev) => {
+        ev.preventDefault();
         //validation here
         
-        let accountToUpdate = this.state.accounts.filter(account => account.name === this.state.toAccount);
+        let accountIndex = this.state.accounts.findIndex(account => account.name === this.state.toAccount);
+        console.log('accountIndex is ', accountIndex);
+
+        let accountToUpdate = this.state.accounts[accountIndex];
         console.log('accountToUpdate is ', accountToUpdate);
+
+        let newAccounts = this.state.accounts;
+        newAccounts[accountIndex].balance = (newAccounts[accountIndex].balance + this.state.amount)
+
+        this.setState({
+            accounts: newAccounts,
+            checkingBalance: (this.state.checkingBalance - this.state.amount),
+        });
     };
 
     updateAmount = (ev) => {
