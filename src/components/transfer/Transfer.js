@@ -3,6 +3,32 @@ import './Transfer.css';
 
 export default class Transfer extends React.Component{
     state = {
+        accounts: [
+            {
+                name: 'Free Checking(4692)',
+                balance: 5824.76
+            },
+            {
+                name: 'Premium Savings(8837)',
+                balance: 11593.21
+            },
+            {
+                name: 'Credit Rewards',
+                balace: 128.13
+            },
+            {
+                name: 'Georgia Electric Power Company',
+                balance: -129.43
+            },
+            {
+                name: 'Comcast Xfinity',
+                balance: -89.99
+            },
+            {
+                name: 'Peachtree Bank Credit Card',
+                balance: -218.97
+            }
+        ],
         amount: 0,
         fromAccount: '',
         toAccount: ''
