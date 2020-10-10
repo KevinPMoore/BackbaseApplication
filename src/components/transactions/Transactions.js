@@ -18,7 +18,7 @@ export default class Transactions extends React.Component{
                 </div>
                 <form className='transactions-form' id='transactions-form'>
                     <fieldset form='transactions-form'>
-                        <label for='transactions-search'>Search by typing...</label>
+                        <label htmlFor='transactions-search'>Search by typing...</label>
                         <input type='text' className='transactions-search' id='transactions-search' placeholder='Search by typing...'></input>
                         <span>Sort by</span>
                         <button className='transactions-date-drop'>DATE</button>
