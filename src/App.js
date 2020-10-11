@@ -10,10 +10,10 @@ export default class App extends React.Component {
     return(
       <div className='App'>
         <Header/>
-        <div className='main'>
+        <main>
           <Transfer/>
           <Transactions/>
-        </div>
+        </main>
       </div>
     );
   };

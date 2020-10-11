@@ -1,0 +1,16 @@
+.Transfer {
+    width: 80;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.transfer-title {
+    background-color: #0c8397;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+}

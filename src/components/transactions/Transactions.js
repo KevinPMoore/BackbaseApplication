@@ -19,6 +19,19 @@ export default class Transactions extends React.Component{
         this.handleSearchTransactions();
     };
 
+    //can you make button look like it stays pushed?
+    updateFilter = (ev) => {
+        if(ev.target.value === this.state.filter) {
+            this.setState({
+                filter: ''
+            })
+        } else {
+            this.setState({
+                filter: ev.target.value
+            });
+        };
+    };
+
     //
     //RESUME WORK HERE
     //
@@ -32,19 +45,25 @@ export default class Transactions extends React.Component{
             searchedTransactions.push(this.state.transactionHistory.filter(transaction =>
                 transaction.merchant.name.toLowerCase().includes(this.state.search)
             ));
+            console.log('searchedTransactions are ', searchedTransactions);
+            /*
             this.setState({
                 transactionHistory: searchedTransactions
             });
+            */
         };
     };
+
+    testClearTransactiosn = () => {
+        this.setState({
+            transactionHistory: []
+        })
+    }
 
     handleFilterTransactions = () => {
 
     };
 
-    //
-    //This is not clearing
-    //
     renderTransactionHistory = (history) => {
         let transactionList = history.map(transaction =>
             <li className='transaction-item' key={transaction.categoryCode + transaction.transaction.amountCurrency.amount}>
@@ -85,9 +104,9 @@ export default class Transactions extends React.Component{
                         <label htmlFor='transactions-search'>Search by typing...</label>
                         <input type='text' className='transactions-search' id='transactions-search' placeholder='Search by typing...' onChange={this.updateSearch}></input>
                         <span>Sort by</span>
-                        <button className='transactions-date-drop'>DATE</button>
-                        <button className='transactions-beneficiary'>BENEFICIARY</button>
-                        <button className='transactions-amount'>AMOUNT</button>
+                        <button className='transactions-date-drop' type='button' onClick={this.testClearTransactiosn}>DATE</button>
+                        <button className='transactions-beneficiary' type='button' value='beneficiary' onClick={this.updateFilter}>BENEFICIARY</button>
+                        <button className='transactions-amount' type='button' value='amount' onClick={this.updateFilter}>AMOUNT</button>
                     </fieldset>
                 </form>
                 {this.renderTransactionHistory(this.state.transactionHistory)}
