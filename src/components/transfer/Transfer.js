@@ -79,7 +79,7 @@ export default class Transfer extends React.Component{
         });
     };
 
-    createToOptions = () => {
+    renderToOptions = () => {
         let transferAccounts = this.state.accounts.map(account =>
             <option key={account.name} value={account.name}>{account.name} {account.balance}</option>
         );
@@ -102,13 +102,13 @@ export default class Transfer extends React.Component{
                         <label htmlFor='tta'>To Account</label>
                         <select name='transfer-to-account' id='tta' onChange={this.updateToAccount}>
                             <option value=''>--Select an Account--</option>
-                            {this.createToOptions()}
+                            {this.renderToOptions()}
                         </select>
                         <label htmlFor='amount'>Amount</label>
                         <input type='number' name='transfer-amount' id='ta' min='0' step='0.01' onChange={this.updateAmount}></input>
                         {error && <p className='error'>This action would cause you to exceed your overdraft limit.  Please select a smaller amount.</p>}
+                        <button type='submit'>SUBMIT</button>
                     </fieldset>
-                    <button type='submit'>SUBMIT</button>
                 </form>
             </section>
         );
