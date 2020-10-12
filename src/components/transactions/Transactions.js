@@ -100,8 +100,8 @@ export default class Transactions extends React.Component{
                     <h2>Recent Transactions</h2>
                 </div>
                 <form className='transactions-form' id='transactions-form'>
-                    <fieldset form='transactions-form'>
-                        <label htmlFor='transactions-search'>Search by typing...</label>
+                    <fieldset className='transactions-fieldset' form='transactions-form'>
+                        <label className='transactions-search-label' htmlFor='transactions-search'>Search by typing...</label>
                         <input type='text' className='transactions-search' id='transactions-search' placeholder='Search by typing...' onChange={this.updateSearch}></input>
                         <span>Sort by</span>
                         <button className='transactions-date-drop' type='button' onClick={this.testClearTransactiosn}>DATE</button>
