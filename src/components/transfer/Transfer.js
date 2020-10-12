@@ -2,7 +2,6 @@ import React from 'react';
 import './Transfer.css';
 
 //make sure from is disabled on the select
-//make update amount
 //add overdraft validation
 //confirm form resets on submission
 //add modal to confirm success

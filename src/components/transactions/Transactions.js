@@ -3,7 +3,6 @@ import Mock from './mocktransactions.json';
 import PLACEHOLDERIMAGE from './icons/texaco.png';
 import './Transactions.css';
 
-//hide the 'search by typing label from view but not screen readers'
 //add downward carat to DATE
 export default class Transactions extends React.Component{
     state = {
@@ -64,12 +63,19 @@ export default class Transactions extends React.Component{
 
     };
 
+    standardizeDate = (date) => {
+        const monthNames = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
+        const fixedDate = new Date(date);
+        let [month, day] = fixedDate.toLocaleDateString().split('/');
+        return monthNames[month] + day;
+    };
+
     renderTransactionHistory = (history) => {
         let transactionList = history.map(transaction =>
             <li className='transaction-item' key={transaction.categoryCode + transaction.transaction.amountCurrency.amount}>
                 <div className={transaction.merchant.name} id='vertical-bar'></div>
                 <div className='transaction-date'>
-                    {transaction.dates.valueDate}
+                    {this.standardizeDate(transaction.dates.valueDate)}
                 </div>
                 <img className='transaction-logo' src={PLACEHOLDERIMAGE} alt='a company logo'></img>
                 <div className='transaction-info'>
