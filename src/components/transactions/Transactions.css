@@ -39,12 +39,8 @@
     min-width: 60px;
 }
 
-/*This seems to be not working, no caret*/
 .transactions-date-drop::after {
     content: '';
-    position: absolute;
-    top: 50%;
-    right: 15px;
     transform: translateY(-50%);
     width: 0; 
     height: 0; 

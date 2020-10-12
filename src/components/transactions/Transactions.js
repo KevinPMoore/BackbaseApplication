@@ -3,24 +3,37 @@ import Mock from './mocktransactions.json';
 import PLACEHOLDERIMAGE from './icons/texaco.png';
 import './Transactions.css';
 
-//add downward carat to DATE
 export default class Transactions extends React.Component{
     state = {
-        filter: '',
+        date: 'collapse',
         search: '',
+        sort: '',
         transactionHistory: Mock.data
     };
 
-    //can you make button look like it stays pushed?
-    updateFilter = (ev) => {
-        if(ev.target.value === this.state.filter) {
+    updateDate = () => {
+        if(this.state.date === 'collapse') {
             this.setState({
-                filter: ''
-            })
+                date: 'show'
+            });
         } else {
             this.setState({
-                filter: ev.target.value
+                date: 'collapse'
             });
+        };
+    };
+
+    updateSort = (ev) => {
+        if(ev.target.value === this.state.sort) {
+            this.setState({
+                sort: ''
+            });
+            this.handleSortTransactions();
+        } else {
+            this.setState({
+                sort: ev.target.value
+            });
+            this.handleSortTransactions();
         };
     };
 
@@ -54,16 +67,54 @@ export default class Transactions extends React.Component{
     };
 
     //
-    //this is on date and needs to be removed
+    //Is there a more DRY way to do this???
+    //This needs to sort Mock by criteria
     //
-    testClearTransactiosn = () => {
-        this.setState({
-            transactionHistory: []
-        });
-    };
+    handleSortTransactions = () => {
+        function mergeSortTransactions(transactionsArray) {
+            if(transactionsArray.length <= 1) {
+                return transactionsArray;
+            };
+            
+            const middle = Math.floor(transactionsArray.length/2);
+            const left = transactionsArray.slice(0, middle);
+            const right = transactionsArray.slice(middle);
 
-    handleFilterTransactions = () => {
+            return merge(mergeSortTransactions(left), mergeSortTransactions(right));
+        };
 
+        function merge(left, right) {
+            let resultArray = [], leftIndex = 0, rightIndex = 0;
+
+            while(leftIndex < left.length && rightIndex < right.length) {
+                if(left[leftIndex] < right[rightIndex]) {
+                    resultArray.push(left[leftIndex]);
+                    leftIndex++;
+                } else {
+                    resultArray.push(right[rightIndex]);
+                    rightIndex++;
+                };
+            };
+
+            return resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+        };
+
+        switch(this.state.sort) {
+            case 'ascending':
+                console.log('this will sort from the earliest to latest transaction');
+                break;
+            case 'descending':
+                console.log('this will sort from the most recent to the oldest transaction');
+                break;
+            case 'beneficiary':
+                console.log('this will sort by merchant.name alphabetically');
+                break;
+            case 'amount':
+                console.log('this will sory by amountCurrency.amount in descending order');
+                break;
+            default:
+                console.log('this should be the original order');
+        }
     };
 
     standardizeDate = (date) => {
@@ -71,6 +122,17 @@ export default class Transactions extends React.Component{
         const fixedDate = new Date(date);
         let [month, day] = fixedDate.toLocaleDateString().split('/');
         return monthNames[month] + day;
+    };
+
+    renderDateSorts = () => {
+        if(this.state.date === 'show') {
+            return(
+                <div className='transfers-date-options'>
+                    <button className='transfers-date-ascending' type='button' value='ascending' onClick={this.updateSort}>ASCENDING</button>
+                    <button className='transfers-date-descending' type='button' value='descending' onClick={this.updateSort}>DESCENDING</button>
+                </div>
+            );
+        };
     };
 
     renderTransactionHistory = (history) => {
@@ -114,9 +176,10 @@ export default class Transactions extends React.Component{
                         <input type='text' className='transactions-search' id='transactions-search' placeholder='Search by typing...' onChange={this.updateSearch}></input>
                         <div className='transactions-button-container'>
                             <span>Sort by</span>
-                            <button className='transactions-date-drop transactions-button' type='button' onClick={this.testClearTransactiosn}>DATE</button>
-                            <button className='transactions-beneficiary transactions-button' type='button' value='beneficiary' onClick={this.updateFilter}>BENEFICIARY</button>
-                            <button className='transactions-amount transactions-button' type='button' value='amount' onClick={this.updateFilter}>AMOUNT</button>
+                            <button className='transactions-date-drop transactions-button' type='button' onClick={this.updateDate}>DATE</button>
+                            {this.renderDateSorts()}
+                            <button className='transactions-beneficiary transactions-button' type='button' value='beneficiary' onClick={this.updateSort}>BENEFICIARY</button>
+                            <button className='transactions-amount transactions-button' type='button' value='amount' onClick={this.updateSort}>AMOUNT</button>
                         </div>
                     </fieldset>
                 </form>

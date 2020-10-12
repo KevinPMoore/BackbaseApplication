@@ -33,9 +33,6 @@ export default class Transfer extends React.Component{
         toAccount: ''
     };
 
-    //
-    //Resume work here, is currently deducting from correctly but not adding to correctly
-    //
     updateAccounts = (ev) => {
         ev.preventDefault();
         
@@ -51,19 +48,21 @@ export default class Transfer extends React.Component{
         this.setState({
             accounts: newAccounts,
             checkingBalance: (this.state.checkingBalance - this.state.amount),
+            modal: 'none'
         });
     };
 
     updateAmount = (ev) => {
-        let transferAmmount = ev.target.value;
-        if(transferAmmount > (this.state.checkingBalance + 500)) {
+        let transferAmount = parseFloat(ev.target.value);
+        console.log('transferAmount is ', transferAmount)
+        if(transferAmount > (this.state.checkingBalance + 500)) {
             this.setState({
                 amount: 0,
                 error: true
             });
         } else{
             this.setState({
-                amount: transferAmmount
+                amount: transferAmount
             });
         };
     };
@@ -111,7 +110,7 @@ export default class Transfer extends React.Component{
         return(
             <div className={this.state.modal}>
                 <div className='modal-content'>
-                    <p className='transfer-modal-warning'>You are about to transfer {this.state.amount} from Free Checking(4692) to {this.state.toAccount}.  Are you sure?</p>
+                    <p className='transfer-modal-warning'>You are about to transfer ${this.state.amount} from Free Checking(4692) to {this.state.toAccount}.  Are you sure?</p>
                     <button className='transfer-confirm' onClick={this.updateAccounts}>Confirm</button>
                     <button className='transfer-cancel' onClick={this.updateModal}>Cancel</button>
                 </div>
@@ -139,7 +138,7 @@ export default class Transfer extends React.Component{
                             {this.renderToOptions()}
                         </select>
                         <label className='transfer-label' htmlFor='amount'>Amount</label>
-                        <input type='number' className='transfer-field' name='transfer-amount' id='ta' min='0' step='0.01' value={this.state.amount} onChange={this.updateAmount}></input>
+                        <input type='number' className='transfer-field' name='transfer-amount' id='ta' min='0' step='.01' value={this.state.amount} onChange={this.updateAmount}></input>
                         {error && <p className='error'>{this.state.error}</p>}
                         <button className='transfer-button' type='button' onClick={this.updateModal}>SUBMIT</button>
                     </fieldset>
