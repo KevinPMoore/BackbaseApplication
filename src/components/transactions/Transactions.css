@@ -65,13 +65,30 @@
 .transaction-item {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     flex-wrap: wrap;
     min-height: 80px;
     border: 1px solid grey;
+    font-size: 0.8rem;
 }
 
 #vertical-bar {
     width: 8px;
     height: 80px;
     background-color: gray;
+}
+
+.transaction-date {
+    width: 36px;
+}
+
+.transaction-company {
+    width: 72px;
+};
+
+/*
+    this does not appear to be working
+*/
+.transaction-amount {
+    width: 40px;
 }
