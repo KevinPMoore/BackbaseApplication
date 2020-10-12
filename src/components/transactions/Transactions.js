@@ -11,13 +11,6 @@ export default class Transactions extends React.Component{
         transactionHistory: Mock.data
     };
 
-    updateSearch = (ev) => {
-        this.setState({
-            search: ev.target.value
-        });
-        this.handleSearchTransactions();
-    };
-
     //can you make button look like it stays pushed?
     updateFilter = (ev) => {
         if(ev.target.value === this.state.filter) {
@@ -29,6 +22,13 @@ export default class Transactions extends React.Component{
                 filter: ev.target.value
             });
         };
+    };
+
+    updateSearch = (ev) => {
+        this.setState({
+            search: ev.target.value
+        });
+        this.handleSearchTransactions();
     };
 
     //
@@ -53,11 +53,14 @@ export default class Transactions extends React.Component{
         };
     };
 
+    //
+    //this is on date and needs to be removed
+    //
     testClearTransactiosn = () => {
         this.setState({
             transactionHistory: []
-        })
-    }
+        });
+    };
 
     handleFilterTransactions = () => {
 
@@ -109,10 +112,12 @@ export default class Transactions extends React.Component{
                     <fieldset className='transactions-fieldset' form='transactions-form'>
                         <label className='transactions-search-label' htmlFor='transactions-search'>Search by typing...</label>
                         <input type='text' className='transactions-search' id='transactions-search' placeholder='Search by typing...' onChange={this.updateSearch}></input>
-                        <span>Sort by</span>
-                        <button className='transactions-date-drop' type='button' onClick={this.testClearTransactiosn}>DATE</button>
-                        <button className='transactions-beneficiary' type='button' value='beneficiary' onClick={this.updateFilter}>BENEFICIARY</button>
-                        <button className='transactions-amount' type='button' value='amount' onClick={this.updateFilter}>AMOUNT</button>
+                        <div className='transactions-button-container'>
+                            <span>Sort by</span>
+                            <button className='transactions-date-drop transactions-button' type='button' onClick={this.testClearTransactiosn}>DATE</button>
+                            <button className='transactions-beneficiary transactions-button' type='button' value='beneficiary' onClick={this.updateFilter}>BENEFICIARY</button>
+                            <button className='transactions-amount transactions-button' type='button' value='amount' onClick={this.updateFilter}>AMOUNT</button>
+                        </div>
                     </fieldset>
                 </form>
                 {this.renderTransactionHistory(this.state.transactionHistory)}

@@ -1,7 +1,6 @@
 import React from 'react';
 import './Transfer.css';
 
-//make sure from is disabled on the select
 //add overdraft validation
 //confirm form resets on submission
 //add modal to confirm success
@@ -95,7 +94,7 @@ export default class Transfer extends React.Component{
                 <form className='transfer-form' id='transfer-form' onSubmit={this.updateAccounts}>
                     <fieldset className='transfer-fieldset' form='tf'>
                         <label className='transfer-label' htmlFor='tfa'>From Account</label>
-                        <select className='transfer-field' name='transfer-from-account' id='tfa' onChange={this.updateFromAccount}>
+                        <select className='transfer-field' name='transfer-from-account' id='tfa' disabled onChange={this.updateFromAccount}>
                             <option value={this.state.checkingBalance} defaultValue>Free Checking(4692) {this.state.checkingBalance}</option>
                         </select>
                         <label className='transfer-label' htmlFor='tta'>To Account</label>

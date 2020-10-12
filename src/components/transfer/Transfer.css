@@ -39,6 +39,10 @@ h2 {
     width: 90%;
     min-height: 24px;
     margin-bottom: 4px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: gray;
 }
 
 .error {
