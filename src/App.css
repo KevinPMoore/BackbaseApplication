@@ -12,5 +12,9 @@
 }
 
 @media screen and (min-width: 1025px) {
-
+  main {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+  }
 }

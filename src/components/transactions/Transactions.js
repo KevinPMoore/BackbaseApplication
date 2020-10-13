@@ -170,7 +170,7 @@ export default class Transactions extends React.Component{
         return(
             <section className='Transactions'>
                 <div className='transactions-title'>
-                    <h2>Recent Transactions</h2>
+                    <h2 className='transactions-header'>Recent Transactions</h2>
                 </div>
                 <form className='transactions-form' id='transactions-form'>
                     <fieldset className='transactions-fieldset' form='transactions-form'>

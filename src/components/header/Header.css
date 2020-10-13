@@ -5,7 +5,7 @@
     border-bottom: 2px solid #ff7839;
     position: fixed;
     top: 0;
-    z-index: +1;
+    z-index: +2;
 }
 
 .bank-logo {
@@ -28,5 +28,13 @@
 }
 
 @media screen and (min-width: 1025px) {
+    .Header {
+        height: 70px;
+    }
 
+    .bank-logo {
+        margin-left: 5%;
+        height: 44px;
+        width: 320px;
+    }
 }

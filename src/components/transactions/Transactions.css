@@ -227,6 +227,102 @@
     }
 }
 
-@media screen and (min-width: 1025px) {
 
+@media screen and (min-width: 1025px) {
+    .Transactions {
+        width: 60%;
+        height: 80%;
+    }
+    /* no changes here yet
+    .transactions-fieldset {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        max-height: 46px;
+    }
+
+    .transactions-search-container {
+        width: 50%;
+    }
+    
+    .transactions-search {
+        height: 28px;
+        width: 80%;
+        margin-bottom: auto;
+        margin-top: auto;
+        margin-left: none;
+        margin-right: none;
+        padding-bottom: 2px;
+    }
+
+    .transactions-button-container {
+        width: 50%;
+        padding-top: 16px;
+    }
+    
+    .transactions-button {
+        height: 32px;
+        width: 76px;
+    }
+    
+    .transfers-date-options {
+        z-index: +1;
+    }
+    
+    .transfers-date-buttons {
+        clear: both;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .transfers-date-descending,
+    .transfers-date-ascending {
+        height: 32px;
+    }
+    
+    .transactions-beneficiary {
+        width: 94px;
+    }
+    
+    .transactions-amount {
+        width: 62px;
+    }
+
+    .transaction-logo {
+        width: 60px;
+        height: 60px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    .transaction-item {
+        font-size: 0.9rem;
+    }
+    
+    #vertical-bar {
+        width: 10px;
+    }
+    
+    .transaction-date {
+        width: 42px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .transaction-info {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    .transaction-company {
+        width: 84px;
+    }
+    
+    .transaction-amount {
+        width: 48px;
+        margin-right: 8px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    */
 }

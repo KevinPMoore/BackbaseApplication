@@ -13,6 +13,7 @@
 }
 
 h2 {
+    padding-top: 2px;
     color: white;
     text-align: center;
     font-size: 1.2rem;
@@ -60,7 +61,7 @@ h2 {
     margin-bottom: 8px;
     height: 24px;
     width: 68px;
-    background-color: #f98f19;
+    background-color: #ee7033;
     color: white;
     border: none;
     border-radius: 4%;
@@ -134,7 +135,7 @@ cursor: pointer;
 
     h2 {
         height: 28px;
-        text-align: center;
+        padding-top: 4px;
     }
 
     .transfer-form {
@@ -176,5 +177,47 @@ cursor: pointer;
 }
 
 @media screen and (min-width: 1025px) {
+    .Transfer {
+        margin-top: 66px;
+        width: 20%;
+        height: 40%;
+        min-height: 420px;
+    }
+
+    h2 {
+        height: 32px;
+        padding-top: 6px;
+    }
+
+    .transfer-form {
+        min-height: 300px;
+    }
+
+    .transfer-fieldset {
+        padding-left: 18px;
+        min-height: 300px;
+    }
+
+    .transfer-label {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+    }
+
+    .transfer-field {
+        min-height: 32px;
+        margin-bottom: 16px;
+    }
+
+    .transfer-button {
+        margin-left: 33%;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        height: 48px;
+        width: 188px;
+    }
+
+    .transfer-modal-warning {
+        font-size: 1.2rem;
+    }
 
 }
