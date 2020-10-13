@@ -37,6 +37,9 @@
     margin-bottom: 8px;
     margin-left: 15%;
     margin-right: 15%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .transactions-button-container {
@@ -105,14 +108,14 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    min-height: 80px;
+    max-height: 60px;
     border: 1px solid grey;
     font-size: 0.8rem;
 }
 
 #vertical-bar {
     width: 8px;
-    height: 80px;
+    height: 60px;
     background-color: gray;
 }
 
@@ -190,8 +193,8 @@
     }
 
     .transaction-logo {
-        width: 60px;
-        height: 60px;
+        width: 48px;
+        height: 48px;
         margin-top: auto;
         margin-bottom: auto;
     }
@@ -231,9 +234,14 @@
 @media screen and (min-width: 1025px) {
     .Transactions {
         width: 60%;
-        height: 80%;
+        max-height: 832px;
+        margin-top: 66px;
     }
-    /* no changes here yet
+
+    .transactions-header {
+        height: 48px;
+    }
+    
     .transactions-fieldset {
         flex-direction: row;
         justify-content: space-between;
@@ -243,6 +251,7 @@
 
     .transactions-search-container {
         width: 50%;
+        padding-right: 72px;
     }
     
     .transactions-search {
@@ -258,6 +267,12 @@
     .transactions-button-container {
         width: 50%;
         padding-top: 16px;
+        justify-content: flex-end;
+        margin-right: 4%;
+    }
+
+    .transactions-span {
+        margin-right: 20px;
     }
     
     .transactions-button {
@@ -281,16 +296,27 @@
     }
     
     .transactions-beneficiary {
-        width: 94px;
+        width: 98px;
     }
     
     .transactions-amount {
-        width: 62px;
+        width: 76px;
+    }
+
+    .transaction-item {
+        max-height: 64px;
+        width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #vertical-bar {
+        height: 64px;
     }
 
     .transaction-logo {
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         margin-top: auto;
         margin-bottom: auto;
     }
@@ -304,18 +330,19 @@
     }
     
     .transaction-date {
-        width: 42px;
+        width: 44px;
         margin-top: auto;
         margin-bottom: auto;
     }
 
     .transaction-info {
+        width: 132px;
         margin-top: auto;
         margin-bottom: auto;
     }
     
     .transaction-company {
-        width: 84px;
+        width: 132px;
     }
     
     .transaction-amount {
@@ -324,5 +351,5 @@
         margin-top: auto;
         margin-bottom: auto;
     }
-    */
+    
 }
