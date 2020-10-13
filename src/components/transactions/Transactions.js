@@ -174,8 +174,10 @@ export default class Transactions extends React.Component{
                 </div>
                 <form className='transactions-form' id='transactions-form'>
                     <fieldset className='transactions-fieldset' form='transactions-form'>
-                        <label className='transactions-search-label' htmlFor='transactions-search'>Search by typing...</label>
-                        <input type='text' className='transactions-search' id='transactions-search' placeholder='Search by typing...' onChange={this.updateSearch}></input>
+                        <div className='transactions-search-container'>
+                            <label className='transactions-search-label' htmlFor='transactions-search'>Search by typing...</label>
+                            <input type='text' className='transactions-search' id='transactions-search' placeholder='Search by typing...' onChange={this.updateSearch}></input>
+                        </div>
                         <div className='transactions-button-container'>
                             <span className='transactions-span'>Sort by</span>
                             <div className='transfers-date-options'>
