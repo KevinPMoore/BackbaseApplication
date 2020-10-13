@@ -46,7 +46,12 @@ h2 {
 }
 
 .error {
-
+    margin-right: 8px;
+    background-color: #000;
+    color: red;
+    text-align: center;
+    border: 1px solid gray;
+    font-size: 0.85rem;
 }
 
 .transfer-button {
@@ -116,4 +121,22 @@ h2 {
 color: #000;
 text-decoration: none;
 cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .Transfer {
+        margin-top: 66px;
+        width: 45%;
+        min-width: 346px;
+        min-height: 240px;
+    }
+
+    h2 {
+        height: 28px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+
 }

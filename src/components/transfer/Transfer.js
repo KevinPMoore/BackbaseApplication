@@ -53,23 +53,19 @@ export default class Transfer extends React.Component{
     };
 
     updateAmount = (ev) => {
-        let transferAmount = parseFloat(ev.target.value);
-        console.log('transferAmount is ', transferAmount)
-        if(transferAmount > (this.state.checkingBalance + 500)) {
+        if(typeof ev.target.value !== Number) {
+            let transferAmount = parseFloat(ev.target.value);
             this.setState({
-                amount: 0,
-                error: true
-            });
-        } else{
-            this.setState({
-                amount: transferAmount
+                amount: transferAmount,
+                error: null
             });
         };
     };
 
     updateToAccount = (ev) => {
         this.setState({
-            toAccount: ev.target.value
+            toAccount: ev.target.value,
+            error: null
         });
     };
 
@@ -89,11 +85,13 @@ export default class Transfer extends React.Component{
         } else {
             if(this.state.modal === 'none') {
                 this.setState({
-                    modal: 'modal'
+                    modal: 'modal',
+                    error: null
                 });
             } else {
                 this.setState({
-                    modal: 'none'
+                    modal: 'none',
+                    error: null
                 });
             };
         };

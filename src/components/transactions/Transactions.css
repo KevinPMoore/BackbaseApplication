@@ -13,12 +13,12 @@
 }
 
 .transactions-fieldset {
-    padding-left: 8px;
     min-height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     border: 0;
+    margin-bottom: 8px;
 }
 
 .transactions-search-label {
@@ -26,7 +26,11 @@
 }
 
 .transactions-search {
-    width: 40%;
+    height: 24px;
+    width: 60%;
+    margin-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .transactions-button-container {
@@ -34,27 +38,55 @@
     justify-content: space-evenly;
 }
 
+.transactions-span {
+    vertical-align: middle;
+}
+
 .transactions-button {
     height: 24px;
-    min-width: 60px;
+    width: 62px;
+    background-color: white;
+    border: 1px solid gray;
+    font-size: 0.8rem;
 }
 
 .transactions-date-drop::after {
+    display: block;
+    float: right;
+    margin-top: 6px;
+    margin-right: 2px;
     content: '';
     transform: translateY(-50%);
-    width: 0; 
-    height: 0; 
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid black;
 }
 
+.transfers-date-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.transfers-date-buttons {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+}
+
+.transfers-date-descending,
+.transfers-date-ascending {
+    background-color: white;
+    border: 1px solid gray;
+    height: 24px;
+}
+
 .transactions-beneficiary {
-    
+    width: 94px;
 }
 
 .transactions-amount {
-    
+    width: 62px;
 }
 
 .transaction-logo {
@@ -84,11 +116,17 @@
 
 .transaction-company {
     width: 72px;
-};
+}
 
-/*
-    this does not appear to be working
-*/
 .transaction-amount {
     width: 40px;
+    margin-right: 4px;
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1025px) {
+
 }

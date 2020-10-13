@@ -58,6 +58,8 @@ export default class Transactions extends React.Component{
                 transaction.merchant.name.toLowerCase().includes(this.state.search)
             ));
             console.log('searchedTransactions are ', searchedTransactions);
+            
+            /*this is the part that breaks it for some reason*/
             /*
             this.setState({
                 transactionHistory: searchedTransactions
@@ -127,9 +129,9 @@ export default class Transactions extends React.Component{
     renderDateSorts = () => {
         if(this.state.date === 'show') {
             return(
-                <div className='transfers-date-options'>
-                    <button className='transfers-date-ascending' type='button' value='ascending' onClick={this.updateSort}>ASCENDING</button>
-                    <button className='transfers-date-descending' type='button' value='descending' onClick={this.updateSort}>DESCENDING</button>
+                <div className='transfers-date-buttons'>
+                    <button className='transfers-date-ascending' type='button' value='ascending' onClick={this.updateSort}>ASC.</button>
+                    <button className='transfers-date-descending' type='button' value='descending' onClick={this.updateSort}>DESC.</button>
                 </div>
             );
         };
@@ -175,9 +177,11 @@ export default class Transactions extends React.Component{
                         <label className='transactions-search-label' htmlFor='transactions-search'>Search by typing...</label>
                         <input type='text' className='transactions-search' id='transactions-search' placeholder='Search by typing...' onChange={this.updateSearch}></input>
                         <div className='transactions-button-container'>
-                            <span>Sort by</span>
-                            <button className='transactions-date-drop transactions-button' type='button' onClick={this.updateDate}>DATE</button>
-                            {this.renderDateSorts()}
+                            <span className='transactions-span'>Sort by</span>
+                            <div className='transfers-date-options'>
+                                <button className='transactions-date-drop transactions-button' type='button' onClick={this.updateDate}>DATE</button>
+                                {this.renderDateSorts()}
+                            </div>
                             <button className='transactions-beneficiary transactions-button' type='button' value='beneficiary' onClick={this.updateSort}>BENEFICIARY</button>
                             <button className='transactions-amount transactions-button' type='button' value='amount' onClick={this.updateSort}>AMOUNT</button>
                         </div>
