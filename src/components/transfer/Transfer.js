@@ -1,7 +1,6 @@
 import React from 'react';
 import './Transfer.css';
 
-//confirm form resets on submission
 export default class Transfer extends React.Component{
     state = {
         accounts: [
@@ -37,16 +36,13 @@ export default class Transfer extends React.Component{
         ev.preventDefault();
         
         let accountIndex = this.state.accounts.findIndex(account => account.name === this.state.toAccount);
-        console.log('accountIndex is ', accountIndex);
-
-        let accountToUpdate = this.state.accounts[accountIndex];
-        console.log('accountToUpdate is ', accountToUpdate);
-
         let newAccounts = this.state.accounts;
         newAccounts[accountIndex].balance = (newAccounts[accountIndex].balance + this.state.amount)
 
         this.setState({
             accounts: newAccounts,
+            toAccount: '',
+            amount: 0,
             checkingBalance: (this.state.checkingBalance - this.state.amount),
             modal: 'none'
         });
